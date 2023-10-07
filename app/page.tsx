@@ -19,7 +19,7 @@ const Home = () => {
               />
             </p>
             <h1 className="head-text">
-              Unlease the Power of
+              Unleash the Power of
               <span className="text-primary"> PriceWise</span>
             </h1>
             <p className="mt-6">
@@ -29,8 +29,8 @@ const Home = () => {
 
             <Searchbar />
           </div>
+          <HeroCarousel />
         </div>
-        <HeroCarousel />
       </section>
 
       <section className="trending-section">
