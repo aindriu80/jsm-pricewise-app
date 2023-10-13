@@ -1,3 +1,4 @@
+"use server"
 import axios from 'axios'
 import * as cheerio from 'cheerio'
 import { extractCurrency, extractPrice, extractDescription } from '../utils'
@@ -7,7 +8,7 @@ export async function scrapeAmazonProduct(url: string) {
   // BrightData proxy configuration
   const username = String(process.env.BRIGHT_DATA_USERNAME)
   const password = String(process.env.BRIGHT_DATA_PASSWORD)
-  const port = 2225
+  const port = 22225;
   const session_id = (1000000 * Math.random()) | 0
   const options = {
     auth: {
@@ -35,7 +36,7 @@ export async function scrapeAmazonProduct(url: string) {
     const originalPrice = extractPrice(
       $('#priceblock_ourprice'),
       $('.a-price.a-text-price span.a-offscreen'),
-      $('$listPrice'),
+      $('#listPrice'),
       $('#priceblock_dealprice'),
       $('.a-size-base.a-color-price')
     )
@@ -67,12 +68,12 @@ export async function scrapeAmazonProduct(url: string) {
       discountRate: Number(discountRate),
       category: 'category',
       reviewsCount: 100,
-      starts: 4.5,
+      stars: 4.5,
       isOutOfStock: outOfStock,
       description,
       lowestPrice: Number(currentPrice) || Number(originalPrice),
-      hightestPrice: Number(originalPrice) || Number(currentPrice),
-      average: Number(currentPrice) || Number(originalPrice),
+      highestPrice: Number(originalPrice) || Number(currentPrice),
+      averagePrice: Number(currentPrice) || Number(originalPrice),
     }
 
     console.log({
