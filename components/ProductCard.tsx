@@ -1,0 +1,32 @@
+import { Product } from '@/types'
+import Image from 'next/image'
+import Link from 'next/link'
+import React from 'react'
+
+interface Props {
+  product: Product
+}
+const ProductCard = ({ product }: Props) => {
+  return (
+    <Link href={`/products/${product._id}`} className="product-card">
+      <div className="product-card_img-container">
+        <Image
+          src={product.image}
+          alt={product.title}
+          width={200}
+          height={200}
+          className="product-card-image"
+        />
+      </div>
+
+      <div className="flex flex-col">
+        <h3 className="product-title">{product.title}</h3>
+        <div className="flex justify-between">
+          <p className="text-black opacity-50">{product.category}</p>
+        </div>
+      </div>
+    </Link>
+  )
+}
+
+export default ProductCard
