@@ -108,3 +108,10 @@ export function extractCurrency(element: any) {
   const currencyText = element.text().trim().slice(0, 1)
   return currencyText ? currencyText : ''
 }
+
+export const formatNumber = (num: number = 0) => {
+  return num.toLocaleString(undefined, {
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  })
+}
