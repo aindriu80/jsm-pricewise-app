@@ -8,6 +8,7 @@ import { formatNumber } from '@/lib/utils'
 import PriceInfoCard from '@/components/PriceInfoCard'
 import ProductCard from '@/components/ProductCard'
 import Modal from '@/components/Modal'
+import { Product } from '@/types'
 
 type Props = {
   params: { id: string }
