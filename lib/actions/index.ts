@@ -113,7 +113,7 @@ export async function addUserEmailToProduct(
 
         await product.save()
 
-        const emailContent = await generateEmailBody(product, 'Welcome')
+      const emailContent = await generateEmailBody(product, "WELCOME");
 
         await sendEmail(emailContent, [userEmail])
       }
